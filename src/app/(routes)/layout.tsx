@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import Link from "next/link";
+import { Camera, Home, LayoutGrid, Search, User } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +33,25 @@ export default function RootLayout({
       >
         <Theme>
           {children}
+          <div className="fixed bottom-0 bg-white px-4 py-2 left-0 right-0">
+            <div className="max-w-lg mx-auto flex justify-between *:size-12 *:flex *:items-center *:justify-center">
+              <Link href="/">
+                <Home/>
+              </Link>
+              <Link href="/search">
+                <Search/>
+              </Link>
+              <Link href="/create" className="bg-gradient-to-tr from-ig-orange to-ig-red text-white rounded-full relative -top-6">
+                <Camera/>
+              </Link>
+              <Link href="/browse">
+                <LayoutGrid/>
+              </Link>
+              <Link href="/profile">
+                <User/>
+              </Link>
+            </div>
+          </div>
         </Theme>
       </body>
     </html>
